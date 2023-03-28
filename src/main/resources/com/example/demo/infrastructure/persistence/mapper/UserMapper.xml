@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.infrastructure.persistence.mapper.UserMapper">
+
+	<select id="selectLoginUser" parameterType="com.example.demo.domain.form.login.LoginForm"
+		resultType="com.example.demo.domain.model.UserData"> SELECT muser.user_id, muser.user_nm ,
+		to_char(muser.account_expiration, 'YYYY/MM/DD') as account_expiration,
+		to_char(muser.password_expiration, 'YYYY/MM/DD') as password_expiration, muser.enabled ,
+		muser.insert_user_id , to_char(muser.insert_timestamp, 'YYYY/MM/DD HH24:MI:SS') as
+		insert_timestamp, muser.update_user_id , to_char(muser.update_timestamp, 'YYYY/MM/DD
+		HH24:MI:SS') as update_timestamp FROM m_user muser <where>
+			<if test="email != null and email != ''"> AND muser.user_id = #{email} </if>
+		<if
+				test="password != null and password != ''"> AND muser.password = #{password} </if>
+		</where></select>
+
+	<select id="selectUserList" parameterType="com.example.demo.domain.form.user.SearchForm"
+		resultType="com.example.demo.domain.model.UserData"> SELECT muser.user_id, muser.user_nm ,
+		to_char(muser.account_expiration, 'YYYY/MM/DD') as account_expiration,
+		to_char(muser.password_expiration, 'YYYY/MM/DD') as password_expiration, muser.enabled ,
+		muser.insert_user_id , to_char(muser.insert_timestamp, 'YYYY/MM/DD HH24:MI:SS') as
+		insert_timestamp, muser.update_user_id , to_char(muser.update_timestamp, 'YYYY/MM/DD
+		HH24:MI:SS') as update_timestamp FROM m_user muser <where>
+			<if test="userId != null and userId != ''"> AND muser.user_id LIKE CONCAT('%',
+		#{userId}, '%') </if>
+		<if test="userNm != null and userNm != ''"> AND muser.user_nm LIKE
+		CONCAT('%', #{userNm}, '%') </if>
+		</where> ORDER BY muser.user_id </select>
+
+</mapper>
