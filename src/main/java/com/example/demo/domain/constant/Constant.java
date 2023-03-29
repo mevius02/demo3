@@ -13,6 +13,7 @@ public class Constant {
     public static final String MAP_LOGIN = "/login";
     public static final String MAP_ENABLED_FLG = "/enabledFlg";
     public static final String MAP_DOWNLOAD_CSV = "/downloadCsv";
+    public static final String MAP_UPLOAD_CSV = "/uploadCsv";
 
     // 定数
     // ==================================================

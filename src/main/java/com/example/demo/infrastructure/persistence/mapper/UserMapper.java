@@ -13,4 +13,6 @@ public interface UserMapper {
 	UserData selectLoginUser(LoginForm loginForm);
 
 	List<UserData> selectUserList(SearchForm searchForm);
+
+	int insertUser(UserData userData);
 }

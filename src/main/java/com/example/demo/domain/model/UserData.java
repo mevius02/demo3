@@ -10,6 +10,7 @@ import lombok.Setter;
 public class UserData {
 	private Integer updateCnt;
 	private String userId;
+	private String password;
 	private String userNm;
 	private String accountExpiration;
 	private String passwordExpiration;
