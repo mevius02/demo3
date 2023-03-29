@@ -18,5 +18,25 @@ persistenceパッケージには、エンティティとリポジトリのマッ
 externalパッケージには、外部APIとの通信を担当するクライアントを実装します
 configurationパッケージには、アプリケーション全体の設定を定義します
 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-■
+■npm
 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+アプリ作成：npx create-react-app my-app
+npm install
+npm install axios
+npm install react
+npm install react-dom
+npm install react-router-dom
+npm install react-bootstrap bootstrap
+npm install formik yup
+npm install react-scripts
+npm install react-helmet
+npm install web-vitals
+npm run build
+キャッシュ削除：npm cache clean --force
+初期化：npm init
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },

@@ -1,45 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-	<!-- デフォルトで継承したい設定の読み込み -->
+	<!-- デフォルト設定の読込 -->
 	<include resource="org/springframework/boot/logging/logback/base.xml" />
 
-	<!-- propertyタグで指定した内容は後から${name}の形で値を取り出すことができる -->
-	<!-- "./" で srcディレクトリ直下に出力される -->
+	<!-- "./" は srcフォルダ直下 -->
 	<!-- ログファイルパス[アプリケーション] -->
 	<property name="APP_LOG_DIR" value="./" />
 	<!-- ログファイル名[アプリケーション] -->
 	<property name="APP_LOG_FILENAME" value="appLog" />
 
-	<!-- コンソール出力（"classに指定されたConsoleAppenderにより設定されている。） -->
+	<!-- コンソール出力 (classで指定したAppenderで出力される) -->
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<target>System.out</target>
-		<!-- 出力される文字列に関する設定箇所 -->
+		<!-- 出力文字列の設定 -->
 		<encoder>
 			<charset>UTF-8</charset>
 			<pattern>%d{yyyy/MM/dd HH:mm:ss} %-5level [%thread] - %msg%n</pattern>
 		</encoder>
 	</appender>
 
-	<!-- アプリケーションログのファイル書き出し -->
+	<!-- アプリケーションログ設定 (classで指定したAppenderで出力される) -->
 	<appender name="APPLICATION_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<!--ファイル名 -->
 		<file>${APP_LOG_DIR}${APP_LOG_FILENAME}.log</file>
-		<!-- 保存方法のルールを設定する部分 -->
+		<!-- ファイル保存設定 -->
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>${APP_LOG_DIR}${APP_LOG_FILENAME}-%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+			<!-- ファイル保存期間(月数) -->
 			<maxHistory>3</maxHistory>
 		</rollingPolicy>
+		<!-- 出力文字列の設定 -->
 		<encoder>
 			<charset>UTF-8</charset>
 			<pattern>%msg%n</pattern>
 		</encoder>
 	</appender>
 
-	<!-- rootログレベルと使用出力ルール -->
-	<!-- ここに記載したレベル以上のログが出力される -->
+	<!-- レベルごとの出力ログ設定 -->
 	<root level="INFO">
-		<!-- このappender-refタグで指定したappenderタグの内容が実際に実行される内容になる -->
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="APPLICATION_LOG" />
 	</root>

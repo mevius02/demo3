@@ -49,7 +49,7 @@ public class UserController {
 		response.setCharacterEncoding(Constant.SHIFT_JIS);
 		response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"userList.csv\"");
 
-		// CSVファイル書き込み
+		// CSVファイル書込
 		try (var writer = response.getWriter()) {
 			// ヘッダー
 			writer.write(String.join(Constant.COMMA, Constant.USER_ID, Constant.USER_NM));

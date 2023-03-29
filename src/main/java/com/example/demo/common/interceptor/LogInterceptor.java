@@ -13,11 +13,11 @@ import jakarta.servlet.http.HttpServletResponse;
 public class LogInterceptor implements HandlerInterceptor {
 	private static final Logger logger = LoggerFactory.getLogger(LogInterceptor.class);
 
-	/* API処理完了後(正常、異常問わず)必ず実行される */
+	/* API処理(Controller処理)完了後、必ず実行される */
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler,
 			@Nullable Exception ex)
 			throws Exception {
-		logger.info("Interceptor.afterCompletion()ログ出力");
+		logger.info("インターセプターログ出力：Interceptor.afterCompletion()");
 	}
 }

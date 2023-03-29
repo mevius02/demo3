@@ -32,7 +32,6 @@ public class LoginController {
 	public ResponseEntity<UserData> login(LoginForm loginForm) {
 		UserData user = new UserData();
 		if (!StringUtils.isEmpty(loginForm.getEmail()) && !StringUtils.isEmpty(loginForm.getPassword())) {
-			// [検索]ユーザー
 			user = userService.selectLoginUser(loginForm);
 		}
 		return new ResponseEntity<UserData>(user, HttpStatus.OK);
