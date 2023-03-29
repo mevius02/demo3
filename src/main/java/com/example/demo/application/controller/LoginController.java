@@ -1,7 +1,5 @@
 package com.example.demo.application.controller;
 
-import java.net.http.HttpResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +7,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.example.demo.domain.constant.Constant;
 import com.example.demo.domain.form.login.LoginForm;
@@ -30,10 +27,12 @@ public class LoginController {
 
 	@GetMapping(Constant.MAP_LOGIN)
 	public ResponseEntity<UserData> login(LoginForm loginForm) {
+		log.info("[開始]ログイン");
 		UserData user = new UserData();
 		if (!StringUtils.isEmpty(loginForm.getEmail()) && !StringUtils.isEmpty(loginForm.getPassword())) {
 			user = userService.selectLoginUser(loginForm);
 		}
+		log.info("[終了]ログイン");
 		return new ResponseEntity<UserData>(user, HttpStatus.OK);
 	}
 }
