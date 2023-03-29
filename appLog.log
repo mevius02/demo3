@@ -850,3 +850,33 @@ Stopping service [Tomcat]
 Closing JPA EntityManagerFactory for persistence unit 'default'
 HikariPool-21 - Shutdown initiated...
 HikariPool-21 - Shutdown completed.
+Starting DemoApplication using Java 17.0.6 with PID 6484 (D:\Git\demo3\target\classes started by KEY in D:\git\demo3)
+No active profile set, falling back to 1 default profile: "default"
+Multiple Spring Data modules found, entering strict repository configuration mode
+Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 2 ms. Found 0 JDBC repository interfaces.
+Multiple Spring Data modules found, entering strict repository configuration mode
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 1 ms. Found 0 JPA repository interfaces.
+Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+Tomcat initialized with port(s): 8080 (http)
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/10.1.5]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 210 ms
+HikariPool-22 - Starting...
+HikariPool-22 - Added connection org.postgresql.jdbc.PgConnection@30940022
+HikariPool-22 - Start completed.
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+HHH90000026: PostgreSQL95Dialect has been deprecated; use org.hibernate.dialect.PostgreSQLDialect instead
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+LiveReload server is running on port 35729
+Tomcat started on port(s): 8080 (http) with context path ''
+Started DemoApplication in 0.436 seconds (process running for 1497.403)
+Running default command line with: []
+Condition evaluation unchanged
